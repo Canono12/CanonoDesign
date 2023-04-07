@@ -33,8 +33,8 @@ public class Dbconfiguration {
     
     
     
-    public void insertData(String sql) throws SQLException{
-        
+    public int insertData(String sql) throws SQLException{
+     int result;   
         
     try{
     PreparedStatement pstmt = connection.prepareStatement(sql);
@@ -42,9 +42,13 @@ public class Dbconfiguration {
     pstmt.executeUpdate();
         System.out.println("Inserted Successfully");
         pstmt.close();
-    }catch(SQLException e){
-        System.out.println("Connection Error:"+e);
+        result = 1;
+    }catch(SQLException ex){
+        System.out.println("Connection Error:"+ex);
+        result = 0;
     }
+    return result;
+            
 }
     
     

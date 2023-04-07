@@ -42,8 +42,6 @@ public class USERPAGE extends javax.swing.JInternalFrame {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
         
-        sgen.setOpaque(false);
-        sgen.setBackground(new Color (0,0,0,0));
         
         
         
@@ -93,14 +91,6 @@ public class USERPAGE extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
-        sgen = new javax.swing.JTextField();
-        jlabel = new javax.swing.JTextField();
-        sname = new javax.swing.JTextField();
-        sadd = new javax.swing.JTextField();
-        sstat = new javax.swing.JTextField();
-        insert = new javax.swing.JButton();
-        clear = new javax.swing.JButton();
-        update = new javax.swing.JButton();
         delete = new javax.swing.JButton();
         ref = new javax.swing.JButton();
         add = new javax.swing.JButton();
@@ -131,103 +121,27 @@ public class USERPAGE extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(table);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 310, 240));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 510, 240));
 
-        sgen.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        sgen.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sgen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        sgen.setOpaque(false);
-        sgen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sgenActionPerformed(evt);
-            }
-        });
-        jPanel1.add(sgen, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 190, 30));
-
-        jlabel.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jlabel.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jlabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jlabel.setOpaque(false);
-        jlabel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jlabelActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 190, 30));
-
-        sname.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        sname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        sname.setOpaque(false);
-        sname.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                snameActionPerformed(evt);
-            }
-        });
-        jPanel1.add(sname, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 190, 30));
-
-        sadd.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        sadd.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sadd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        sadd.setOpaque(false);
-        sadd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saddActionPerformed(evt);
-            }
-        });
-        jPanel1.add(sadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 190, 30));
-
-        sstat.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        sstat.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        sstat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        sstat.setOpaque(false);
-        sstat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sstatActionPerformed(evt);
-            }
-        });
-        jPanel1.add(sstat, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 190, 30));
-
-        insert.setText("Insert");
-        insert.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                insertActionPerformed(evt);
-            }
-        });
-        jPanel1.add(insert, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, -1, -1));
-
-        clear.setText("Clear");
-        clear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearActionPerformed(evt);
-            }
-        });
-        jPanel1.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, -1));
-
-        update.setText("Update");
-        update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateActionPerformed(evt);
-            }
-        });
-        jPanel1.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, -1, -1));
-
+        delete.setBackground(new java.awt.Color(0, 153, 255));
         delete.setText("DELETE");
         delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteActionPerformed(evt);
             }
         });
-        jPanel1.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 80, 20));
+        jPanel1.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 100, 30));
 
+        ref.setBackground(new java.awt.Color(0, 153, 255));
         ref.setText("REFRESH");
         ref.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refActionPerformed(evt);
             }
         });
-        jPanel1.add(ref, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 100, 20));
+        jPanel1.add(ref, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 100, 30));
 
+        add.setBackground(new java.awt.Color(0, 153, 255));
         add.setText("ADD");
         add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -239,15 +153,21 @@ public class USERPAGE extends javax.swing.JInternalFrame {
                 addActionPerformed(evt);
             }
         });
-        jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 80, 20));
+        jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 100, 30));
 
+        edit.setBackground(new java.awt.Color(0, 153, 255));
         edit.setText("EDIT");
+        edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editMouseClicked(evt);
+            }
+        });
         edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editActionPerformed(evt);
             }
         });
-        jPanel1.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 80, 20));
+        jPanel1.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 100, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -281,42 +201,6 @@ public class USERPAGE extends javax.swing.JInternalFrame {
        }
     }//GEN-LAST:event_deleteActionPerformed
 
-    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
-      jlabel.setText(null);
-      sname.setText(null);
-      sadd.setText(null);
-      sstat.setText(null);
-      sgen.setText(null);
-    }//GEN-LAST:event_clearActionPerformed
-
-    private void insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertActionPerformed
-        Dbconfiguration dbc = new Dbconfiguration();
-        try {
-            dbc.insertData("INSERT INTO tbl_student (st_name, st_address, st_status, st_gender) "
-                    + "VALUES ('"+sname.getText()+"', '"+sadd.getText()+"','"+sstat.getText()+"','"+sgen.getText()+"')");
-        } catch (SQLException ex) {
-            Logger.getLogger(USERPAGE.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        displayData();
-        reset();
-    }//GEN-LAST:event_insertActionPerformed
-
-    private void sstatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sstatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sstatActionPerformed
-
-    private void saddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saddActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_saddActionPerformed
-
-    private void snameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_snameActionPerformed
-
-    private void jlabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jlabelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jlabelActionPerformed
-
     private void refActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refActionPerformed
         
         
@@ -327,39 +211,8 @@ public class USERPAGE extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_refActionPerformed
 
-    private void sgenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sgenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sgenActionPerformed
-
-    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-       Dbconfiguration dbc = new Dbconfiguration();
-        int num = dbc.updateData("UPDATE tbl_student "
-                + "SET st_name = '"+sname.getText()+"', st_address='"+sadd.getText()+"', "
-                        + "st_status ='"+sstat.getText()+"', st_gender='"+sgen.getText()+"'  "
-                                + "WHERE st_id = '"+jlabel.getText()+"'");
-       
-        if(num == 0){
-           
-        }else{
-           JOptionPane.showMessageDialog(null, "Updated Successfully!");
-           displayData();
-           reset();
-        }
-    }//GEN-LAST:event_updateActionPerformed
-
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
-        int rowIndex = table.getSelectedRow();
-        if(rowIndex < 0){
-        
-        }else{
-            TableModel model = table.getModel();
-            jlabel.setText(""+model.getValueAt(rowIndex, 0));
-             sname.setText(""+model.getValueAt(rowIndex, 1));
-              sadd.setText(""+model.getValueAt(rowIndex, 2));
-               sstat.setText(""+model.getValueAt(rowIndex, 3));
-                sgen.setText(""+model.getValueAt(rowIndex, 4));
-            
-        }
+       
     }//GEN-LAST:event_tableMouseClicked
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
@@ -375,30 +228,77 @@ public class USERPAGE extends javax.swing.JInternalFrame {
        up.setVisible(true);
       JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
         mainFrame.dispose();
+        up.action = "Add";
+        up.label.setText("SAVE");
       
         
     }//GEN-LAST:event_addMouseClicked
 
+    private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
+            int rowIndex = table.getSelectedRow();
+        if(rowIndex < 0){
+            JOptionPane.showMessageDialog(null,"Please Select an Item!");
+        
+        }else{
+            TableModel model = table.getModel();
+            studentform stf = new studentform();
+            stf.st_id.setText(""+model.getValueAt(rowIndex, 0));
+            stf.st_name.setText(""+model.getValueAt(rowIndex, 1));
+            stf.st_address.setText(model.getValueAt(rowIndex, 2).toString());
+            stf.st_status.setSelectedItem(model.getValueAt(rowIndex, 3).toString());
+            
+            
+            
+            stf.gender = model.getValueAt(rowIndex, 4).toString();
+            
+            String gend = model.getValueAt(rowIndex, 4).toString();
+            if(gend.equals("MALE")){
+                stf.male.setSelected(true);
+            }
+            if(gend.equals("FEMALE")){
+                stf.female.setSelected(true);
+            
+            }
+             if(gend.equals("male")){
+                stf.male.setSelected(true);
+            }
+            if(gend.equals("female")){
+                stf.female.setSelected(true);
+            
+            }
+             if(gend.equals("Male")){
+                stf.male.setSelected(true);
+            }
+            if(gend.equals("Female")){
+                stf.female.setSelected(true);
+            
+            }
+            
+            stf.contact.setText(model.getValueAt(rowIndex, 5).toString());
+            stf.mname.setText(""+model.getValueAt(rowIndex, 6));
+            stf.fname.setText(""+model.getValueAt(rowIndex, 7));
+            stf.violation.setSelectedItem(model.getValueAt(rowIndex, 8).toString());
+            stf.setVisible(true);
+            stf.action = "Update";
+            stf.label.setText("UPDATE");
+            JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+             mainFrame.dispose();
+            
+        }
+    }//GEN-LAST:event_editMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
-    private javax.swing.JButton clear;
     private javax.swing.JButton delete;
     private javax.swing.JButton edit;
-    private javax.swing.JButton insert;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jlabel;
     private javax.swing.JButton ref;
-    private javax.swing.JTextField sadd;
-    private javax.swing.JTextField sgen;
-    private javax.swing.JTextField sname;
-    private javax.swing.JTextField sstat;
     private javax.swing.JTable table;
-    private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 
    

@@ -331,7 +331,7 @@ System.exit(0);
     private javax.swing.JLabel exit;
     private javax.swing.JPanel header;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JDesktopPane maindesktop;
+    public javax.swing.JDesktopPane maindesktop;
     private javax.swing.JLabel minimize;
     private javax.swing.JPanel navbar;
     // End of variables declaration//GEN-END:variables
