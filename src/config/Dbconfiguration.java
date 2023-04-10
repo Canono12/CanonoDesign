@@ -54,9 +54,9 @@ public class Dbconfiguration {
     
     
     
-     public void deleteData(int id) {
+     public void deleteData(int id, String table, String table_id) {
     try {
-        PreparedStatement stmt = connection.prepareStatement("DELETE FROM tbl_student WHERE st_id = ?");
+        PreparedStatement stmt = connection.prepareStatement("DELETE FROM "+table+" WHERE "+table_id+" = ?");
         stmt.setInt(1, id);
         int rowsDeleted = stmt.executeUpdate();
         if (rowsDeleted > 0) {

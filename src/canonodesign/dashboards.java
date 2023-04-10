@@ -39,11 +39,11 @@ public class dashboards extends javax.swing.JFrame {
         navbar = new javax.swing.JPanel();
         DASH = new javax.swing.JPanel();
         DASHBOARD = new javax.swing.JLabel();
-        USERPANE = new javax.swing.JPanel();
+        studentpage = new javax.swing.JPanel();
         USER = new javax.swing.JLabel();
         account = new javax.swing.JPanel();
         USER1 = new javax.swing.JLabel();
-        REPORTS1 = new javax.swing.JPanel();
+        userpage = new javax.swing.JPanel();
         USER2 = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
         exit = new javax.swing.JLabel();
@@ -80,26 +80,26 @@ public class dashboards extends javax.swing.JFrame {
 
         navbar.add(DASH, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 120, 30));
 
-        USERPANE.setBackground(new java.awt.Color(0, 153, 255));
-        USERPANE.addMouseListener(new java.awt.event.MouseAdapter() {
+        studentpage.setBackground(new java.awt.Color(0, 153, 255));
+        studentpage.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                USERPANEMouseClicked(evt);
+                studentpageMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                USERPANEMouseEntered(evt);
+                studentpageMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                USERPANEMouseExited(evt);
+                studentpageMouseExited(evt);
             }
         });
-        USERPANE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        studentpage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         USER.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         USER.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        USER.setText("USER PAGE");
-        USERPANE.add(USER, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 100, 30));
+        USER.setText("STUDENTS");
+        studentpage.add(USER, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 100, 30));
 
-        navbar.add(USERPANE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 120, 30));
+        navbar.add(studentpage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 120, 30));
 
         account.setBackground(new java.awt.Color(0, 153, 255));
         account.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -122,23 +122,26 @@ public class dashboards extends javax.swing.JFrame {
 
         navbar.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 120, 30));
 
-        REPORTS1.setBackground(new java.awt.Color(0, 153, 255));
-        REPORTS1.addMouseListener(new java.awt.event.MouseAdapter() {
+        userpage.setBackground(new java.awt.Color(0, 153, 255));
+        userpage.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                userpageMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                REPORTS1MouseEntered(evt);
+                userpageMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                REPORTS1MouseExited(evt);
+                userpageMouseExited(evt);
             }
         });
-        REPORTS1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        userpage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         USER2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         USER2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        USER2.setText("DISPLAY RECORDS");
-        REPORTS1.add(USER2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 30));
+        USER2.setText("USERS");
+        userpage.add(USER2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 30));
 
-        navbar.add(REPORTS1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 120, 30));
+        navbar.add(userpage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 120, 30));
 
         jPanel1.add(navbar);
         navbar.setBounds(0, 0, 120, 380);
@@ -229,13 +232,13 @@ public class dashboards extends javax.swing.JFrame {
         DASH.setBackground(navcolor);
     }//GEN-LAST:event_DASHMouseExited
 
-    private void USERPANEMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_USERPANEMouseEntered
-       USERPANE.setBackground(bodycolor);
-    }//GEN-LAST:event_USERPANEMouseEntered
+    private void studentpageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentpageMouseEntered
+       studentpage.setBackground(bodycolor);
+    }//GEN-LAST:event_studentpageMouseEntered
 
-    private void USERPANEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_USERPANEMouseExited
-       USERPANE.setBackground(navcolor);
-    }//GEN-LAST:event_USERPANEMouseExited
+    private void studentpageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentpageMouseExited
+       studentpage.setBackground(navcolor);
+    }//GEN-LAST:event_studentpageMouseExited
 
     private void accountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseEntered
         account.setBackground(bodycolor);
@@ -245,10 +248,10 @@ public class dashboards extends javax.swing.JFrame {
         account.setBackground(navcolor);
     }//GEN-LAST:event_accountMouseExited
 
-    private void USERPANEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_USERPANEMouseClicked
-        USERPAGE up = new USERPAGE();
+    private void studentpageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentpageMouseClicked
+        studentPage up = new studentPage();
         maindesktop.add(up).setVisible(true);
-    }//GEN-LAST:event_USERPANEMouseClicked
+    }//GEN-LAST:event_studentpageMouseClicked
 
     private void headerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseClicked
    
@@ -270,18 +273,23 @@ System.exit(0);
         maindesktop.add(dbp).setVisible(true);
     }//GEN-LAST:event_DASHMouseClicked
 
-    private void REPORTS1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_REPORTS1MouseEntered
-       REPORTS1.setBackground(bodycolor);
-    }//GEN-LAST:event_REPORTS1MouseEntered
+    private void userpageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userpageMouseEntered
+       userpage.setBackground(bodycolor);
+    }//GEN-LAST:event_userpageMouseEntered
 
-    private void REPORTS1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_REPORTS1MouseExited
-          REPORTS1.setBackground(navcolor);
-    }//GEN-LAST:event_REPORTS1MouseExited
+    private void userpageMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userpageMouseExited
+          userpage.setBackground(navcolor);
+    }//GEN-LAST:event_userpageMouseExited
 
     private void accountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountMouseClicked
          settingsPage set = new  settingsPage();
         maindesktop.add(set).setVisible(true);
     }//GEN-LAST:event_accountMouseClicked
+
+    private void userpageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userpageMouseClicked
+      userPage up = new  userPage();
+        maindesktop.add(up).setVisible(true);
+    }//GEN-LAST:event_userpageMouseClicked
 
     /**
      * @param args the command line arguments
@@ -322,11 +330,9 @@ System.exit(0);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DASH;
     private javax.swing.JLabel DASHBOARD;
-    private javax.swing.JPanel REPORTS1;
     private javax.swing.JLabel USER;
     private javax.swing.JLabel USER1;
     private javax.swing.JLabel USER2;
-    private javax.swing.JPanel USERPANE;
     private javax.swing.JPanel account;
     private javax.swing.JLabel exit;
     private javax.swing.JPanel header;
@@ -334,5 +340,7 @@ System.exit(0);
     public javax.swing.JDesktopPane maindesktop;
     private javax.swing.JLabel minimize;
     private javax.swing.JPanel navbar;
+    private javax.swing.JPanel studentpage;
+    private javax.swing.JPanel userpage;
     // End of variables declaration//GEN-END:variables
 }

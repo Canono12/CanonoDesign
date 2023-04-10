@@ -31,7 +31,7 @@ public class studentform extends javax.swing.JFrame {
         dashboards ds = new dashboards();
       ds.setVisible(true);
       
-      USERPAGE up = new USERPAGE();
+      studentPage up = new studentPage();
         ds.maindesktop.add(up).setVisible(true);
         }
     
@@ -179,6 +179,8 @@ public class studentform extends javax.swing.JFrame {
         st_address.setColumns(20);
         st_address.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         st_address.setRows(5);
+        st_address.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        st_address.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(st_address);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 190, 110));

@@ -27,12 +27,12 @@ import net.proteanit.sql.DbUtils;
  *
  * @author canono
  */
-public class USERPAGE extends javax.swing.JInternalFrame {
+public class studentPage extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form USERPAGE
      */
-    public USERPAGE() {
+    public studentPage() {
         initComponents();
         
        
@@ -124,6 +124,7 @@ public class USERPAGE extends javax.swing.JInternalFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 510, 240));
 
         delete.setBackground(new java.awt.Color(0, 153, 255));
+        delete.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         delete.setText("DELETE");
         delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +134,7 @@ public class USERPAGE extends javax.swing.JInternalFrame {
         jPanel1.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 100, 30));
 
         ref.setBackground(new java.awt.Color(0, 153, 255));
+        ref.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         ref.setText("REFRESH");
         ref.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,6 +144,7 @@ public class USERPAGE extends javax.swing.JInternalFrame {
         jPanel1.add(ref, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 100, 30));
 
         add.setBackground(new java.awt.Color(0, 153, 255));
+        add.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         add.setText("ADD");
         add.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -156,6 +159,7 @@ public class USERPAGE extends javax.swing.JInternalFrame {
         jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 100, 30));
 
         edit.setBackground(new java.awt.Color(0, 153, 255));
+        edit.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         edit.setText("EDIT");
         edit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -194,9 +198,10 @@ public class USERPAGE extends javax.swing.JInternalFrame {
              int a=JOptionPane.showConfirmDialog(null,"Are you sure?");  
                     if(a==JOptionPane.YES_OPTION){  
                             Dbconfiguration dbc = new Dbconfiguration();
-                            dbc.deleteData(Integer.parseInt(id));
+                            int st_id =Integer.parseInt(id);
+                            dbc.deleteData(st_id,"tbl_student", "st_id");
                             displayData();
-                            reset();
+                           
                     }    
        }
     }//GEN-LAST:event_deleteActionPerformed
@@ -207,7 +212,7 @@ public class USERPAGE extends javax.swing.JInternalFrame {
         try {
             fillTable();
         } catch (SQLException ex) {
-            Logger.getLogger(USERPAGE.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(studentPage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_refActionPerformed
 

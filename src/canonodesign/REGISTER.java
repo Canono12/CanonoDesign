@@ -5,8 +5,13 @@
  */
 package canonodesign;
 
+import INTERNALPAGES.studentform;
+import config.Dbconfiguration;
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -44,6 +49,19 @@ void buttonDefaultColor(JPanel panel){
 panel.setBackground(defbutton);
 panel.setBorder(empty);}
 
+
+
+int validateRegister(){
+int orayt ;
+if(firstname.getText().isEmpty()||lastname.getText().isEmpty()||email.getText().isEmpty()||username.getText().isEmpty()||password.getText().isEmpty()){
+orayt = 0;
+}
+else{
+ orayt = 1;
+}
+return orayt ;
+}
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -51,13 +69,13 @@ panel.setBorder(empty);}
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        fullname = new javax.swing.JTextField();
-        confirmpass = new javax.swing.JTextField();
+        lastname = new javax.swing.JTextField();
+        password = new javax.swing.JTextField();
         register = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        username1 = new javax.swing.JTextField();
+        firstname = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
-        pass = new javax.swing.JTextField();
+        username = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         minimize = new javax.swing.JLabel();
         exit = new javax.swing.JLabel();
@@ -75,27 +93,27 @@ panel.setBorder(empty);}
         jPanel3.setBackground(new java.awt.Color(0, 204, 204));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        fullname.setBackground(new java.awt.Color(0, 204, 204));
-        fullname.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        fullname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        fullname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Full Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
-        fullname.addActionListener(new java.awt.event.ActionListener() {
+        lastname.setBackground(new java.awt.Color(0, 204, 204));
+        lastname.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
+        lastname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        lastname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Last Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
+        lastname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fullnameActionPerformed(evt);
+                lastnameActionPerformed(evt);
             }
         });
-        jPanel3.add(fullname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 220, 50));
+        jPanel3.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 220, 50));
 
-        confirmpass.setBackground(new java.awt.Color(0, 204, 204));
-        confirmpass.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        confirmpass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        confirmpass.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Confirm Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
-        confirmpass.addActionListener(new java.awt.event.ActionListener() {
+        password.setBackground(new java.awt.Color(0, 204, 204));
+        password.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
+        password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        password.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
+        password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmpassActionPerformed(evt);
+                passwordActionPerformed(evt);
             }
         });
-        jPanel3.add(confirmpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 220, 50));
+        jPanel3.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 220, 50));
 
         register.setBackground(new java.awt.Color(0, 153, 255));
         register.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -119,19 +137,19 @@ panel.setBorder(empty);}
 
         jPanel3.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 120, 30));
 
-        username1.setBackground(new java.awt.Color(0, 204, 204));
-        username1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        username1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        username1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
-        username1.addActionListener(new java.awt.event.ActionListener() {
+        firstname.setBackground(new java.awt.Color(0, 204, 204));
+        firstname.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
+        firstname.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        firstname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "First Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
+        firstname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                username1ActionPerformed(evt);
+                firstnameActionPerformed(evt);
             }
         });
-        jPanel3.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 220, 50));
+        jPanel3.add(firstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 220, 50));
 
         email.setBackground(new java.awt.Color(0, 204, 204));
-        email.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        email.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
         email.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         email.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email address", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
         email.addActionListener(new java.awt.event.ActionListener() {
@@ -141,16 +159,16 @@ panel.setBorder(empty);}
         });
         jPanel3.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 220, 50));
 
-        pass.setBackground(new java.awt.Color(0, 204, 204));
-        pass.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        pass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        pass.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
-        pass.addActionListener(new java.awt.event.ActionListener() {
+        username.setBackground(new java.awt.Color(0, 204, 204));
+        username.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
+        username.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        username.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
+        username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passActionPerformed(evt);
+                usernameActionPerformed(evt);
             }
         });
-        jPanel3.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 220, 50));
+        jPanel3.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 220, 50));
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -184,33 +202,55 @@ panel.setBorder(empty);}
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fullnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullnameActionPerformed
+    private void lastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fullnameActionPerformed
+    }//GEN-LAST:event_lastnameActionPerformed
 
-    private void confirmpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmpassActionPerformed
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_confirmpassActionPerformed
+    }//GEN-LAST:event_passwordActionPerformed
 
     private void registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseClicked
+ 
+        int check = validateRegister();
+        if (check == 1){
+         Dbconfiguration dbc = new Dbconfiguration();
+         int gawas = 0;
+            try {
+                gawas = dbc.insertData("INSERT INTO table_user (firstname, lastname, user_email, username, password, user_status) "
+                        + "VALUES ('"+firstname.getText()+"', '"+lastname.getText()+"','"+email.getText()+"','"+username.getText()+"', '"+password.getText()+"','Pending')");
+            } catch (SQLException ex) {
+                Logger.getLogger(studentform.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        if(gawas == 1){
+            JOptionPane.showMessageDialog(null, "Successfully Registered!");
+            
        loginform log = new loginform();
-        this.dispose();
-        log.setVisible(true);
+       this.dispose();
+       log.setVisible(true);
+       
+            } else {System.out.println("Saving Data Failed");}
+        
+        }else {JOptionPane.showMessageDialog(null,"All fields are required");}
+        
+        
+          
+        
+        
+        
+        
+      
     }//GEN-LAST:event_registerMouseClicked
 
     private void registerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseEntered
@@ -231,17 +271,17 @@ panel.setBorder(empty);}
         setState(ICONIFIED);
     }//GEN-LAST:event_minimizeMouseClicked
 
-    private void username1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_username1ActionPerformed
+    private void firstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_username1ActionPerformed
+    }//GEN-LAST:event_firstnameActionPerformed
 
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
 
-    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passActionPerformed
+    }//GEN-LAST:event_usernameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,19 +319,19 @@ panel.setBorder(empty);}
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField confirmpass;
     private javax.swing.JTextField email;
     private javax.swing.JLabel exit;
-    private javax.swing.JTextField fullname;
+    private javax.swing.JTextField firstname;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField lastname;
     private javax.swing.JLabel minimize;
-    private javax.swing.JTextField pass;
+    private javax.swing.JTextField password;
     private javax.swing.JPanel register;
-    private javax.swing.JTextField username1;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }
