@@ -60,6 +60,7 @@ public class userPage extends javax.swing.JInternalFrame {
             Dbconfiguration dbc = new Dbconfiguration();
             ResultSet rs = dbc.getData("SELECT * FROM table_user");
             user_table.setModel(DbUtils.resultSetToTableModel(rs));
+             rs.close();
        
         }catch(SQLException ex){
             System.out.println("Error Message: "+ex);

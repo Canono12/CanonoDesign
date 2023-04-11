@@ -59,6 +59,7 @@ public class studentPage extends javax.swing.JInternalFrame {
             Dbconfiguration dbc = new Dbconfiguration();
             ResultSet rs = dbc.getData("SELECT * FROM tbl_student");
             table.setModel(DbUtils.resultSetToTableModel(rs));
+            rs.close();
        
         }catch(SQLException ex){
             System.out.println("Error Message: "+ex);

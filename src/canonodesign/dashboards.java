@@ -45,6 +45,10 @@ public class dashboards extends javax.swing.JFrame {
         USER1 = new javax.swing.JLabel();
         userpage = new javax.swing.JPanel();
         USER2 = new javax.swing.JLabel();
+        department = new javax.swing.JPanel();
+        USER3 = new javax.swing.JLabel();
+        enrollees = new javax.swing.JPanel();
+        USER4 = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
         exit = new javax.swing.JLabel();
         minimize = new javax.swing.JLabel();
@@ -120,7 +124,7 @@ public class dashboards extends javax.swing.JFrame {
         USER1.setText("ACCOUNT");
         account.add(USER1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 100, 30));
 
-        navbar.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 120, 30));
+        navbar.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 120, 30));
 
         userpage.setBackground(new java.awt.Color(0, 153, 255));
         userpage.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -142,6 +146,48 @@ public class dashboards extends javax.swing.JFrame {
         userpage.add(USER2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 30));
 
         navbar.add(userpage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 120, 30));
+
+        department.setBackground(new java.awt.Color(0, 153, 255));
+        department.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                departmentMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                departmentMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                departmentMouseExited(evt);
+            }
+        });
+        department.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        USER3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        USER3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        USER3.setText("DEPARTMENT");
+        department.add(USER3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 30));
+
+        navbar.add(department, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 120, 30));
+
+        enrollees.setBackground(new java.awt.Color(0, 153, 255));
+        enrollees.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                enrolleesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                enrolleesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                enrolleesMouseExited(evt);
+            }
+        });
+        enrollees.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        USER4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        USER4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        USER4.setText("ENROLLEES");
+        enrollees.add(USER4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 30));
+
+        navbar.add(enrollees, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 120, 30));
 
         jPanel1.add(navbar);
         navbar.setBounds(0, 0, 120, 380);
@@ -291,6 +337,32 @@ System.exit(0);
         maindesktop.add(up).setVisible(true);
     }//GEN-LAST:event_userpageMouseClicked
 
+    private void departmentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_departmentMouseClicked
+        departmentPage up = new   departmentPage();
+        maindesktop.add(up).setVisible(true);
+    }//GEN-LAST:event_departmentMouseClicked
+
+    private void departmentMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_departmentMouseEntered
+      department.setBackground(bodycolor);
+    }//GEN-LAST:event_departmentMouseEntered
+
+    private void departmentMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_departmentMouseExited
+         department.setBackground(navcolor);
+    }//GEN-LAST:event_departmentMouseExited
+
+    private void enrolleesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrolleesMouseClicked
+        enrollees up = new   enrollees();
+        maindesktop.add(up).setVisible(true);
+    }//GEN-LAST:event_enrolleesMouseClicked
+
+    private void enrolleesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrolleesMouseEntered
+       enrollees.setBackground(bodycolor);
+    }//GEN-LAST:event_enrolleesMouseEntered
+
+    private void enrolleesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrolleesMouseExited
+        enrollees.setBackground(navcolor);
+    }//GEN-LAST:event_enrolleesMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -333,7 +405,11 @@ System.exit(0);
     private javax.swing.JLabel USER;
     private javax.swing.JLabel USER1;
     private javax.swing.JLabel USER2;
+    private javax.swing.JLabel USER3;
+    private javax.swing.JLabel USER4;
     private javax.swing.JPanel account;
+    private javax.swing.JPanel department;
+    private javax.swing.JPanel enrollees;
     private javax.swing.JLabel exit;
     private javax.swing.JPanel header;
     private javax.swing.JPanel jPanel1;

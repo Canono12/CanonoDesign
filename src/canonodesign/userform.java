@@ -47,7 +47,7 @@ return orayt ;
         dashboards ds = new dashboards();
       ds.setVisible(true);
       
-      studentPage up = new studentPage();
+      userPage up = new userPage();
         ds.maindesktop.add(up).setVisible(true);
         }
     
@@ -108,7 +108,7 @@ return orayt ;
         exit.setBounds(260, 0, 50, 40);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel1.setText("STUDENT FORM");
+        jLabel1.setText("USER FORM");
         jPanel2.add(jLabel1);
         jLabel1.setBounds(10, 10, 220, 20);
 
