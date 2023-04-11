@@ -28,7 +28,7 @@ public class Dbconfiguration {
     public ResultSet getData(String sql) throws SQLException {
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
-        
+
         return resultSet;
     }
     
