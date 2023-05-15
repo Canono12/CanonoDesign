@@ -17,9 +17,11 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import config.Dbconnector;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
@@ -36,7 +38,7 @@ public class userPage extends javax.swing.JInternalFrame {
     public userPage() {
         initComponents();
         
-       
+       displayData();
  
         
         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
@@ -58,7 +60,7 @@ public class userPage extends javax.swing.JInternalFrame {
         try{
        
             Dbconfiguration dbc = new Dbconfiguration();
-            ResultSet rs = dbc.getData("SELECT * FROM table_user");
+            ResultSet rs = dbc.getData("SELECT * FROM users");
             user_table.setModel(DbUtils.resultSetToTableModel(rs));
              rs.close();
        
@@ -73,7 +75,7 @@ public class userPage extends javax.swing.JInternalFrame {
          
        try{  
          Dbconfiguration dbc = new Dbconfiguration();
-         ResultSet rs = dbc.getData("SELECT*FROM table_user");
+         ResultSet rs = dbc.getData("SELECT*FROM users");
          user_table.setModel(DbUtils.resultSetToTableModel(rs));
          
      }catch(SQLException ex){
@@ -97,6 +99,7 @@ public class userPage extends javax.swing.JInternalFrame {
         ref = new javax.swing.JButton();
         add = new javax.swing.JButton();
         edit = new javax.swing.JButton();
+        print = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -133,7 +136,7 @@ public class userPage extends javax.swing.JInternalFrame {
                 deleteActionPerformed(evt);
             }
         });
-        jPanel1.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, 100, 30));
+        jPanel1.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 80, 30));
 
         ref.setBackground(new java.awt.Color(0, 153, 255));
         ref.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -143,7 +146,7 @@ public class userPage extends javax.swing.JInternalFrame {
                 refActionPerformed(evt);
             }
         });
-        jPanel1.add(ref, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 100, 30));
+        jPanel1.add(ref, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 80, 30));
 
         add.setBackground(new java.awt.Color(0, 153, 255));
         add.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -158,7 +161,7 @@ public class userPage extends javax.swing.JInternalFrame {
                 addActionPerformed(evt);
             }
         });
-        jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 100, 30));
+        jPanel1.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 80, 30));
 
         edit.setBackground(new java.awt.Color(0, 153, 255));
         edit.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -173,7 +176,17 @@ public class userPage extends javax.swing.JInternalFrame {
                 editActionPerformed(evt);
             }
         });
-        jPanel1.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 100, 30));
+        jPanel1.add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 80, 30));
+
+        print.setBackground(new java.awt.Color(0, 153, 255));
+        print.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        print.setText("PRINT");
+        print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printActionPerformed(evt);
+            }
+        });
+        jPanel1.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 80, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -201,7 +214,7 @@ public class userPage extends javax.swing.JInternalFrame {
                     if(a==JOptionPane.YES_OPTION){  
                             Dbconfiguration dbc = new Dbconfiguration();
                             int user_id =Integer.parseInt(id);
-                            dbc.deleteData(user_id,"table_user", "user_id");
+                            dbc.deleteData(user_id,"users", "ID");
                             displayData();
                     }    
        }
@@ -265,6 +278,21 @@ public class userPage extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_editMouseClicked
 
+    private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
+         MessageFormat header = new MessageFormat("users");
+       MessageFormat footer = new MessageFormat("Page {0, number,integer}");
+       
+       try
+       {
+           user_table.print(JTable.PrintMode.NORMAL,header,footer);
+       }
+       
+       catch(java.awt.print.PrinterException e)
+       {
+           System.err.format("No Printer found", e.getMessage());
+       }
+    }//GEN-LAST:event_printActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
@@ -275,6 +303,7 @@ public class userPage extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton print;
     private javax.swing.JButton ref;
     private javax.swing.JTable user_table;
     // End of variables declaration//GEN-END:variables

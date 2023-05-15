@@ -21,9 +21,7 @@ import javax.swing.JOptionPane;
  */
 public class userform extends javax.swing.JFrame {
 
-    /**
-     * Creates new form studentform
-     */
+    
     public userform() {
         initComponents();
     }
@@ -82,6 +80,8 @@ return orayt ;
         jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        confirmpass = new javax.swing.JTextField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -136,14 +136,14 @@ return orayt ;
         st_label.setLayout(st_labelLayout);
         st_labelLayout.setHorizontalGroup(
             st_labelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(label, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+            .addComponent(label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
         );
         st_labelLayout.setVerticalGroup(
             st_labelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
         );
 
-        jPanel1.add(st_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 110, 30));
+        jPanel1.add(st_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 110, 30));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -217,6 +217,22 @@ return orayt ;
         email.setOpaque(false);
         jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 180, 20));
 
+        jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel14.setText("Confirm Pass:");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 100, -1));
+
+        confirmpass.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        confirmpass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        confirmpass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        confirmpass.setOpaque(false);
+        confirmpass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmpassActionPerformed(evt);
+            }
+        });
+        jPanel1.add(confirmpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 180, 20));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -243,8 +259,8 @@ return orayt ;
         
            int result = 0;
             try {
-                result = dbc.insertData("INSERT INTO table_user (firstname, lastname, user_email, username, password, user_status) "
-                        + "VALUES ('"+firstname.getText()+"', '"+lastname.getText()+"','"+email.getText()+"','"+username.getText()+"', '"+password.getText()+"','PENDING')");
+                result = dbc.insertData("INSERT INTO users (firstname, lastname, user_email, username, password, confirmpass) "
+                        + "VALUES ('"+firstname.getText()+"', '"+lastname.getText()+"','"+email.getText()+"','"+username.getText()+"', '"+password.getText()+"','"+confirmpass.getText()+"')");
             } catch (SQLException ex) {
                 Logger.getLogger(userform.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -262,9 +278,9 @@ return orayt ;
         }else if (action.equals("Update")){
         
           Dbconfiguration dbc = new Dbconfiguration();
-        int num = dbc.updateData("UPDATE table_user "
+        int num = dbc.updateData("UPDATE users "
                 + "SET firstname = '"+firstname.getText()+"', lastname='"+lastname.getText()+"', "
-                        + "user_email ='"+email.getText()+"', username='"+username.getText()+"', password='"+password.getText()+"'  "
+                        + "user_email ='"+email.getText()+"', username='"+username.getText()+"', password='"+password.getText()+"',confirmpass='"+confirmpass.getText()+"'  "
                                 + "WHERE user_id = '"+user_id.getText()+"'");
         
         close ();
@@ -299,6 +315,10 @@ return orayt ;
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
+
+    private void confirmpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmpassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_confirmpassActionPerformed
 
     /**
      * @param args the command line arguments
@@ -337,6 +357,7 @@ return orayt ;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JTextField confirmpass;
     public javax.swing.JTextField email;
     private javax.swing.JLabel exit;
     public javax.swing.JTextField firstname;
@@ -345,6 +366,7 @@ return orayt ;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

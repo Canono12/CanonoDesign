@@ -5,8 +5,16 @@
  */
 package canonodesign;
 
+import config.login_db;
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -24,7 +32,12 @@ public class loginform extends javax.swing.JFrame {
     public loginform() {
         initComponents();
     }
-    
+     public String hashPassword(String password) throws NoSuchAlgorithmException {
+    MessageDigest md = MessageDigest.getInstance("SHA-256");
+    md.update(password.getBytes());
+    byte[] digest = md.digest();
+    return String.format("%064x", new java.math.BigInteger(1, digest));
+     }
 Color hover = new Color(204,255,255);
 Color defbutton = new Color(0,153,255);
 
@@ -247,9 +260,52 @@ panel.setBorder(empty);}
     }//GEN-LAST:event_cancelMouseExited
 
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
-        dashboards dash = new dashboards();
-        this.dispose();
-        dash.setVisible(true);
+      PreparedStatement ps;      
+ResultSet rs;
+
+// get the username & password
+String user = username.getText();
+String pass = String.valueOf(password.getText());
+
+String query = "SELECT * FROM `users` WHERE `username`= ? AND `confirmpass` = ?";
+
+try {
+    ps = login_db.getConnection().prepareStatement(query);
+
+    ps.setString(1, user);
+    ps.setString(2, hashPassword(pass)); // hash the password before querying the database
+
+    rs = ps.executeQuery();
+
+    if(rs.next())
+    {
+       dashboards db = new dashboards();
+       db.setVisible(true);
+       db.pack();
+       db.setLocationRelativeTo(null);
+
+       //db.userni.setText("Welcome "+user+ "!");
+       
+       this.dispose();
+
+    }
+    else{
+       
+       JOptionPane.showMessageDialog(null, "Incorrect Username or Password");
+    }
+
+} catch (SQLException ex) {
+    Logger.getLogger(loginform.class.getName()).log(Level.SEVERE, null, ex);
+} catch (NoSuchAlgorithmException ex) {
+    Logger.getLogger(loginform.class.getName()).log(Level.SEVERE, null, ex);
+}
+
+         
+
+
+// dashboards dash = new dashboards();
+       // this.dispose();
+        //dash.setVisible(true);
     }//GEN-LAST:event_loginMouseClicked
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked

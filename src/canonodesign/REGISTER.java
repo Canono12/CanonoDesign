@@ -7,8 +7,13 @@ package canonodesign;
 
 import INTERNALPAGES.studentform;
 import config.Dbconfiguration;
+import config.login_db;
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,7 +34,12 @@ public class REGISTER extends javax.swing.JFrame {
     public REGISTER() {
         initComponents();
     }
-
+     public String hashPassword(String password) throws NoSuchAlgorithmException {
+    MessageDigest md = MessageDigest.getInstance("SHA-256");
+    md.update(password.getBytes());
+    byte[] digest = md.digest();
+    return String.format("%064x", new java.math.BigInteger(1, digest));
+     }
    
 Color hover = new Color(204,255,255);
 Color defbutton = new Color(0,153,255);
@@ -51,7 +61,7 @@ panel.setBorder(empty);}
 
 
 
-int validateRegister(){
+/*int validateRegister(){
 int orayt ;
 if(firstname.getText().isEmpty()||lastname.getText().isEmpty()||email.getText().isEmpty()||username.getText().isEmpty()||password.getText().isEmpty()){
 orayt = 0;
@@ -60,7 +70,7 @@ else{
  orayt = 1;
 }
 return orayt ;
-}
+}*/
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -79,6 +89,7 @@ return orayt ;
         jPanel2 = new javax.swing.JPanel();
         minimize = new javax.swing.JLabel();
         exit = new javax.swing.JLabel();
+        confirm = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -102,7 +113,7 @@ return orayt ;
                 lastnameActionPerformed(evt);
             }
         });
-        jPanel3.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 220, 50));
+        jPanel3.add(lastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 220, 50));
 
         password.setBackground(new java.awt.Color(0, 204, 204));
         password.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
@@ -113,7 +124,7 @@ return orayt ;
                 passwordActionPerformed(evt);
             }
         });
-        jPanel3.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 220, 50));
+        jPanel3.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 220, 50));
 
         register.setBackground(new java.awt.Color(0, 153, 255));
         register.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -133,9 +144,9 @@ return orayt ;
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("REGISTER");
         register.add(jLabel3);
-        jLabel3.setBounds(10, 0, 100, 30);
+        jLabel3.setBounds(10, 0, 160, 30);
 
-        jPanel3.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 120, 30));
+        jPanel3.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 180, 30));
 
         firstname.setBackground(new java.awt.Color(0, 204, 204));
         firstname.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
@@ -157,7 +168,7 @@ return orayt ;
                 emailActionPerformed(evt);
             }
         });
-        jPanel3.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 220, 50));
+        jPanel3.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 220, 50));
 
         username.setBackground(new java.awt.Color(0, 204, 204));
         username.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
@@ -168,7 +179,7 @@ return orayt ;
                 usernameActionPerformed(evt);
             }
         });
-        jPanel3.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 220, 50));
+        jPanel3.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 220, 50));
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -192,6 +203,17 @@ return orayt ;
         jPanel2.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, -1, 40));
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 40));
+
+        confirm.setBackground(new java.awt.Color(0, 204, 204));
+        confirm.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
+        confirm.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        confirm.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Confirm Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
+        confirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmActionPerformed(evt);
+            }
+        });
+        jPanel3.add(confirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 220, 50));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 280, 370));
 
@@ -223,7 +245,7 @@ return orayt ;
 
     private void registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseClicked
  
-        int check = validateRegister();
+       /* int check = validateRegister();
         if (check == 1){
          Dbconfiguration dbc = new Dbconfiguration();
          int gawas = 0;
@@ -244,7 +266,61 @@ return orayt ;
         
         }else {JOptionPane.showMessageDialog(null,"All fields are required");}
         
+        */
+       
+       
+       
+       
+       String fname = firstname.getText();
+         String lname = lastname.getText();
+      String mail = email.getText();
+        String uname = username.getText();
+        String pass = String.valueOf(password.getText());
+        String cpass = String.valueOf(confirm.getText());
         
+        if (uname.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "All Fields Are Required!");
+        }else if (pass.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Add a password");
+        }else if (!pass.equals(cpass))
+        {
+            JOptionPane.showMessageDialog(null, "Password Don't Match");
+        }
+        
+        else if (checkUsername(uname))
+        {
+             JOptionPane.showMessageDialog(null, "This Username Already Exist");
+        }
+        else{
+        PreparedStatement ps;
+ResultSet rs;
+String registerUserQuery = "INSERT INTO `users`(`firstname`, `lastname`, `user_email`, `username`, `password`, `confirmpass`) VALUES (?,?,?,?,?,?)";
+
+try {
+    ps = login_db.getConnection().prepareStatement(registerUserQuery);
+    ps.setString(1, fname);
+    ps.setString(2, lname);
+    ps.setString(3, mail);
+    ps.setString(4, uname);
+    ps.setString(5, hashPassword(pass));
+    ps.setString(6, hashPassword(cpass));
+    if(ps.executeUpdate() > 0){
+        JOptionPane.showMessageDialog(null, "New User Add");
+        loginform lf = new loginform();
+        this.dispose();
+        lf.setVisible(true);
+    }else{
+        JOptionPane.showMessageDialog(null, "Error: Check Your Information");
+    }
+} catch (SQLException ex) {
+    Logger.getLogger(REGISTER.class.getName()).log(Level.SEVERE, null, ex);
+}catch (NoSuchAlgorithmException ex) {
+    Logger.getLogger(REGISTER.class.getName()).log(Level.SEVERE, null, ex); 
+        
+        }
+        }
           
         
         
@@ -283,9 +359,33 @@ return orayt ;
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_confirmActionPerformed
+
+   public boolean  checkUsername(String username)
+    {
+         PreparedStatement ps;      
+        ResultSet rs;
+        boolean checkUser= false    ;
+        
+         String query = "SELECT * FROM `users` WHERE `username`= ?";
+         
+        try {
+            ps = login_db.getConnection().prepareStatement(query);
+             ps.setString(1, username);
+             
+              rs = ps.executeQuery();
+            
+            if(rs.next())
+            {
+                checkUser =true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(REGISTER.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          return checkUser; 
+    }      
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -319,6 +419,7 @@ return orayt ;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField confirm;
     private javax.swing.JTextField email;
     private javax.swing.JLabel exit;
     private javax.swing.JTextField firstname;
