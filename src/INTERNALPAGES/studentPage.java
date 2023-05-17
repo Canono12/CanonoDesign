@@ -99,6 +99,7 @@ public class studentPage extends javax.swing.JInternalFrame {
         add = new javax.swing.JButton();
         edit = new javax.swing.JButton();
         print = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -187,15 +188,20 @@ public class studentPage extends javax.swing.JInternalFrame {
         });
         jPanel1.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 80, 30));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/clear-sky-sunset-dusk-blue-sky-starry-sky-horizon-beach-1600x900-4044 (2).jpg"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 540, 320));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -235,75 +241,76 @@ public class studentPage extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tableMouseClicked
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        // TODO add your handling code here:
+         JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+       mainFrame.dispose();
+       studentform stf = new studentform();
+       stf.setVisible(true);
+       stf.action = "Add";
+       stf.label.setText("SAVE");
     }//GEN-LAST:event_addActionPerformed
 
     private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
-        // TODO add your handling code here:
+         int rowIndex = table.getSelectedRow();
+        if(rowIndex < 0){
+            JOptionPane.showMessageDialog(null, "Please Select an Item!");
+        }else{
+            TableModel model = table.getModel();
+            
+            studentform stf = new studentform();
+            stf.st_id.setText(""+model.getValueAt(rowIndex, 0));
+            String sid = model.getValueAt(rowIndex, 0).toString();
+            try{
+            Dbconfiguration dbc = new  Dbconfiguration();
+            ResultSet rs = dbc.getData("SELECT * FROM tbl_student WHERE st_id = '"+sid+"' ");
+            if(rs.next()){
+            stf.st_name.setText(rs.getString("st_name"));
+            stf.st_address.setText(rs.getString("st_address"));
+             stf.st_status.setSelectedItem(rs.getString("st_status"));
+            stf.gender = rs.getString("st_gender");
+             String gend = rs.getString("st_gender");
+            
+            if(gend.equals("Male")){
+                stf.male.setSelected(true); 
+            }
+            
+            if(gend.equals("Female")){
+                stf.female.setSelected(true);
+            }
+             stf.contact.setText(rs.getString("contact"));
+                 stf.mname.setText(rs.getString("mname"));
+                 stf.fname.setText(rs.getString("fname"));
+                 stf.violation.setSelectedItem(rs.getString("violation"));
+                 
+                 
+                 
+  
+            stf.imageBytes = rs.getBytes("image");
+            
+            stf.person_image = rs.getBytes("image");
+            stf.image_display.setIcon(stf.ResizeImage(null, rs.getBytes("image")));
+               
+            stf.setVisible(true);
+            stf.action = "Update";
+            stf.label.setText("UPDATE");
+            JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+            mainFrame.dispose();
+            }else{
+                System.out.println("No Data Found");
+            }
+            }catch(SQLException w){
+                System.out.println(""+w);
+            }
+        }
     }//GEN-LAST:event_editActionPerformed
 
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
-       studentform up = new studentform();
-       up.setVisible(true);
-      JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-        mainFrame.dispose();
-        up.action = "Add";
-        up.label.setText("SAVE");
+       
       
         
     }//GEN-LAST:event_addMouseClicked
 
     private void editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editMouseClicked
-            int rowIndex = table.getSelectedRow();
-        if(rowIndex < 0){
-            JOptionPane.showMessageDialog(null,"Please Select an Item!");
-        
-        }else{
-            TableModel model = table.getModel();
-            studentform stf = new studentform();
-            stf.st_id.setText(""+model.getValueAt(rowIndex, 0));
-            stf.st_name.setText(""+model.getValueAt(rowIndex, 1));
-            stf.st_address.setText(model.getValueAt(rowIndex, 2).toString());
-            stf.st_status.setSelectedItem(model.getValueAt(rowIndex, 3).toString());
             
-            
-            
-            stf.gender = model.getValueAt(rowIndex, 4).toString();
-            
-            String gend = model.getValueAt(rowIndex, 4).toString();
-            if(gend.equals("MALE")){
-                stf.male.setSelected(true);
-            }
-            if(gend.equals("FEMALE")){
-                stf.female.setSelected(true);
-            
-            }
-             if(gend.equals("male")){
-                stf.male.setSelected(true);
-            }
-            if(gend.equals("female")){
-                stf.female.setSelected(true);
-            
-            }
-             if(gend.equals("Male")){
-                stf.male.setSelected(true);
-            }
-            if(gend.equals("Female")){
-                stf.female.setSelected(true);
-            
-            }
-            
-            stf.contact.setText(model.getValueAt(rowIndex, 5).toString());
-            stf.mname.setText(""+model.getValueAt(rowIndex, 6));
-            stf.fname.setText(""+model.getValueAt(rowIndex, 7));
-            stf.violation.setSelectedItem(model.getValueAt(rowIndex, 8).toString());
-            stf.setVisible(true);
-            stf.action = "Update";
-            stf.label.setText("UPDATE");
-            JFrame mainFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-             mainFrame.dispose();
-            
-        }
     }//GEN-LAST:event_editMouseClicked
 
     private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
@@ -327,6 +334,7 @@ public class studentPage extends javax.swing.JInternalFrame {
     private javax.swing.JButton delete;
     private javax.swing.JButton edit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

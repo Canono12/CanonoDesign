@@ -56,6 +56,7 @@ public class settingsPage extends javax.swing.JInternalFrame {
         REPORTS = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 255));
         jPanel3.setLayout(null);
@@ -149,7 +150,7 @@ public class settingsPage extends javax.swing.JInternalFrame {
         logout.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 130, -1));
 
         jPanel2.add(logout);
-        logout.setBounds(360, 20, 130, 150);
+        logout.setBounds(360, 170, 130, 150);
 
         MANAGEUSER.setBackground(new java.awt.Color(0, 204, 204));
         MANAGEUSER.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -172,7 +173,7 @@ public class settingsPage extends javax.swing.JInternalFrame {
         MANAGEUSER.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 130, -1));
 
         jPanel2.add(MANAGEUSER);
-        MANAGEUSER.setBounds(40, 20, 130, 150);
+        MANAGEUSER.setBounds(40, 170, 130, 150);
 
         REPORTS.setBackground(new java.awt.Color(0, 204, 204));
         REPORTS.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -195,9 +196,13 @@ public class settingsPage extends javax.swing.JInternalFrame {
         REPORTS.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 130, -1));
 
         jPanel2.add(REPORTS);
-        REPORTS.setBounds(200, 20, 130, 150);
+        REPORTS.setBounds(200, 170, 130, 150);
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 152, 531, 190));
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/clear-sky-sunset-dusk-blue-sky-starry-sky-horizon-beach-1600x900-4044 (1).jpg"))); // NOI18N
+        jPanel2.add(jLabel18);
+        jLabel18.setBounds(0, 40, 530, 300);
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 531, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -245,6 +250,7 @@ public class settingsPage extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

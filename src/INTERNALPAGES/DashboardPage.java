@@ -50,6 +50,7 @@ public class DashboardPage extends javax.swing.JInternalFrame {
         REPORTS = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setRequestFocusEnabled(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -117,7 +118,7 @@ public class DashboardPage extends javax.swing.JInternalFrame {
         SETTINGS.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 130, -1));
 
         jPanel2.add(SETTINGS);
-        SETTINGS.setBounds(360, 20, 130, 150);
+        SETTINGS.setBounds(360, 170, 130, 150);
 
         MANAGEUSER.setBackground(new java.awt.Color(0, 204, 204));
         MANAGEUSER.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -140,7 +141,7 @@ public class DashboardPage extends javax.swing.JInternalFrame {
         MANAGEUSER.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 130, -1));
 
         jPanel2.add(MANAGEUSER);
-        MANAGEUSER.setBounds(40, 20, 130, 150);
+        MANAGEUSER.setBounds(40, 170, 130, 150);
 
         REPORTS.setBackground(new java.awt.Color(0, 204, 204));
         REPORTS.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -163,9 +164,13 @@ public class DashboardPage extends javax.swing.JInternalFrame {
         REPORTS.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 130, -1));
 
         jPanel2.add(REPORTS);
-        REPORTS.setBounds(200, 20, 130, 150);
+        REPORTS.setBounds(200, 170, 130, 150);
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 152, 531, 190));
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/clear-sky-sunset-dusk-blue-sky-starry-sky-horizon-beach-1600x900-4044 (1).jpg"))); // NOI18N
+        jPanel2.add(jLabel10);
+        jLabel10.setBounds(0, 40, 530, 300);
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 531, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -200,6 +205,7 @@ public class DashboardPage extends javax.swing.JInternalFrame {
     private javax.swing.JPanel REPORTS;
     private javax.swing.JPanel SETTINGS;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

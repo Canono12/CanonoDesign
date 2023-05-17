@@ -23,6 +23,14 @@ public class Dbconfiguration {
         
         
     }
+    public Connection connect_db(){
+              try{
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/scc_db", "root", "");
+            }catch(SQLException ex){
+                    System.out.println("Can't connect to database: "+ex.getMessage());
+            }
+              return connection;
+        }
     
     
     public ResultSet getData(String sql) throws SQLException {

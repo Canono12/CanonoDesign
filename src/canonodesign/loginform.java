@@ -76,6 +76,7 @@ panel.setBorder(empty);}
         jLabel4 = new javax.swing.JLabel();
         exit = new javax.swing.JLabel();
         minimize = new javax.swing.JLabel();
+        change = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -154,7 +155,7 @@ panel.setBorder(empty);}
             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel3.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 80, 30));
+        jPanel3.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 80, 30));
 
         login.setBackground(new java.awt.Color(0, 153, 255));
         login.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -187,9 +188,10 @@ panel.setBorder(empty);}
             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel3.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 80, 30));
+        jPanel3.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 80, 30));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 102, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("New User? Click here to register");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -197,7 +199,7 @@ panel.setBorder(empty);}
                 jLabel4MouseClicked(evt);
             }
         });
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 280, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 280, -1));
 
         exit.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         exit.setText("X");
@@ -216,6 +218,17 @@ panel.setBorder(empty);}
             }
         });
         jPanel3.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
+
+        change.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        change.setForeground(new java.awt.Color(51, 102, 255));
+        change.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        change.setText("Click here to change password");
+        change.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeMouseClicked(evt);
+            }
+        });
+        jPanel3.add(change, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 280, -1));
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(270, 0, 280, 370);
@@ -324,6 +337,12 @@ try {
         dash.setVisible(true);
     }//GEN-LAST:event_jLabel4MouseClicked
 
+    private void changeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeMouseClicked
+          this.dispose();
+        changepass cp = new changepass();
+        cp.setVisible(true);
+    }//GEN-LAST:event_changeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -361,6 +380,7 @@ try {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cancel;
+    private javax.swing.JLabel change;
     private javax.swing.JLabel exit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
