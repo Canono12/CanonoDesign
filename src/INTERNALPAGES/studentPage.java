@@ -15,6 +15,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import config.Dbconnector;
+import java.awt.Font;
 import java.sql.SQLException;
 import java.text.MessageFormat;
 import java.util.logging.Level;
@@ -45,7 +46,19 @@ public class studentPage extends javax.swing.JInternalFrame {
         bi.setNorthPane(null);
         
         
+          table.setRowHeight(30);
+        //jTable1.setRowHeight(1, 100);
+
+      table.setShowGrid(true);
+        table.setGridColor(Color.gray);
+
+        table.setBackground(Color.white);
+        table.setForeground(Color.BLACK);
         
+       table.setSelectionBackground(Color.gray);
+      table.setSelectionForeground(Color.white);
+        
+        table.setFont(new Font("Century Gothic", Font.ITALIC, 10)); 
         
     }
    
@@ -119,6 +132,7 @@ public class studentPage extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 531, 40));
 
+        table.setBackground(new java.awt.Color(0, 153, 255));
         table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableMouseClicked(evt);

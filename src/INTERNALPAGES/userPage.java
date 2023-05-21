@@ -16,6 +16,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import config.Dbconnector;
+import java.awt.Font;
 import java.sql.SQLException;
 import java.text.MessageFormat;
 import java.util.logging.Level;
@@ -46,6 +47,19 @@ public class userPage extends javax.swing.JInternalFrame {
         bi.setNorthPane(null);
         
         
+        user_table.setRowHeight(30);
+        //jTable1.setRowHeight(1, 100);
+
+     user_table.setShowGrid(true);
+       user_table.setGridColor(Color.gray);
+
+        user_table.setBackground(Color.white);
+        user_table.setForeground(Color.BLACK);
+        
+       user_table.setSelectionBackground(Color.gray);
+      user_table.setSelectionForeground(Color.white);
+        
+        user_table.setFont(new Font("Century Gothic", Font.ITALIC, 10)); 
         
         
     }

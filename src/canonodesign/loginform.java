@@ -77,6 +77,7 @@ panel.setBorder(empty);}
         exit = new javax.swing.JLabel();
         minimize = new javax.swing.JLabel();
         change = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -87,19 +88,20 @@ panel.setBorder(empty);}
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("ADMINISTRATOR");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 270, 40));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 270, 40));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/LOGO (1).png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 270, 160));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 270, 160));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/pexels-harry-cooke-6195041 (1).jpg"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 370));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/clear-sky-sunset-dusk-blue-sky-starry-sky-horizon-beach-1600x900-4044 (2) (2).jpg"))); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 450));
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 0, 270, 370);
+        jPanel2.setBounds(0, 0, 270, 450);
 
         jPanel3.setBackground(new java.awt.Color(0, 204, 204));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -107,28 +109,31 @@ panel.setBorder(empty);}
         password.setBackground(new java.awt.Color(0, 204, 204));
         password.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         password.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        password.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
+        password.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
         password.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
             }
         });
-        jPanel3.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 220, -1));
+        jPanel3.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 220, 60));
 
         username.setBackground(new java.awt.Color(0, 204, 204));
         username.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         username.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        username.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
+        username.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
             }
         });
-        jPanel3.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 220, -1));
+        jPanel3.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 220, 60));
 
         cancel.setBackground(new java.awt.Color(0, 153, 255));
         cancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 cancelMouseEntered(evt);
             }
@@ -155,7 +160,7 @@ panel.setBorder(empty);}
             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel3.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 80, 30));
+        jPanel3.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 80, 30));
 
         login.setBackground(new java.awt.Color(0, 153, 255));
         login.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -188,9 +193,9 @@ panel.setBorder(empty);}
             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel3.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 80, 30));
+        jPanel3.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 80, 30));
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 3, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 102, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("New User? Click here to register");
@@ -199,7 +204,7 @@ panel.setBorder(empty);}
                 jLabel4MouseClicked(evt);
             }
         });
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 280, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 280, -1));
 
         exit.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         exit.setText("X");
@@ -219,7 +224,7 @@ panel.setBorder(empty);}
         });
         jPanel3.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
 
-        change.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        change.setFont(new java.awt.Font("Century Gothic", 3, 12)); // NOI18N
         change.setForeground(new java.awt.Color(51, 102, 255));
         change.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         change.setText("Click here to change password");
@@ -228,10 +233,16 @@ panel.setBorder(empty);}
                 changeMouseClicked(evt);
             }
         });
-        jPanel3.add(change, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 280, -1));
+        jPanel3.add(change, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 280, -1));
+
+        jLabel7.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Login Form");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 280, 40));
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(270, 0, 280, 370);
+        jPanel3.setBounds(270, 0, 280, 450);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,7 +252,7 @@ panel.setBorder(empty);}
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
         );
 
         pack();
@@ -343,6 +354,12 @@ try {
         cp.setVisible(true);
     }//GEN-LAST:event_changeMouseClicked
 
+    private void cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelMouseClicked
+         int a = JOptionPane.showConfirmDialog(null, "Confirm Exit?");
+        if(a == JOptionPane.YES_OPTION){
+        System.exit(0);}
+    }//GEN-LAST:event_cancelMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -388,6 +405,7 @@ try {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

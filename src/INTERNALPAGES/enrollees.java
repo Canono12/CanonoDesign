@@ -15,6 +15,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import config.Dbconnector;
+import java.awt.Font;
 import java.sql.SQLException;
 import java.text.MessageFormat;
 import java.util.logging.Level;
@@ -44,6 +45,20 @@ public class enrollees extends javax.swing.JInternalFrame {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
         
+        
+         enrolltable.setRowHeight(30);
+        //jTable1.setRowHeight(1, 100);
+
+     enrolltable.setShowGrid(true);
+       enrolltable.setGridColor(Color.gray);
+
+        enrolltable.setBackground(Color.white);
+        enrolltable.setForeground(Color.BLACK);
+        
+       enrolltable.setSelectionBackground(Color.gray);
+      enrolltable.setSelectionForeground(Color.white);
+        
+        enrolltable.setFont(new Font("Century Gothic", Font.ITALIC, 10)); 
         
         
         

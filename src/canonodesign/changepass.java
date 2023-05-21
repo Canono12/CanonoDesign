@@ -88,15 +88,16 @@ panel.setBorder(empty);}
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("ADMINISTRATOR");
+        jLabel6.setText("Change Password");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 270, 40));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/LOGO (1).png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 270, 160));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/pexels-harry-cooke-6195041 (1).jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/clear-sky-sunset-dusk-blue-sky-starry-sky-horizon-beach-1600x900-4044 (2) (1).jpg"))); // NOI18N
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 370));
 
         jPanel1.add(jPanel2);
@@ -108,25 +109,25 @@ panel.setBorder(empty);}
         oldpass.setBackground(new java.awt.Color(0, 204, 204));
         oldpass.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         oldpass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        oldpass.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Old Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
+        oldpass.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Old Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
         oldpass.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         oldpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 oldpassActionPerformed(evt);
             }
         });
-        jPanel3.add(oldpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 220, -1));
+        jPanel3.add(oldpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 220, 60));
 
         username.setBackground(new java.awt.Color(0, 204, 204));
         username.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         username.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        username.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
+        username.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
             }
         });
-        jPanel3.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 220, -1));
+        jPanel3.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 220, 60));
 
         cancel.setBackground(new java.awt.Color(0, 153, 255));
         cancel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -215,25 +216,25 @@ panel.setBorder(empty);}
         confirmpass.setBackground(new java.awt.Color(0, 204, 204));
         confirmpass.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         confirmpass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        confirmpass.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Confirm Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
+        confirmpass.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Confirm Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
         confirmpass.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         confirmpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmpassActionPerformed(evt);
             }
         });
-        jPanel3.add(confirmpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 220, -1));
+        jPanel3.add(confirmpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 220, 60));
 
         newpass.setBackground(new java.awt.Color(0, 204, 204));
         newpass.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         newpass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        newpass.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "New Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
+        newpass.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "New Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 11))); // NOI18N
         newpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newpassActionPerformed(evt);
             }
         });
-        jPanel3.add(newpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 220, -1));
+        jPanel3.add(newpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 220, 60));
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(270, 0, 280, 370);

@@ -49,6 +49,7 @@ public class dashboards extends javax.swing.JFrame {
         USER3 = new javax.swing.JLabel();
         enrollees = new javax.swing.JPanel();
         USER4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
         exit = new javax.swing.JLabel();
         minimize = new javax.swing.JLabel();
@@ -82,7 +83,7 @@ public class dashboards extends javax.swing.JFrame {
         DASHBOARD.setText("DASHBOARD");
         DASH.add(DASHBOARD, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 100, 30));
 
-        navbar.add(DASH, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 120, 30));
+        navbar.add(DASH, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 120, 30));
 
         studentpage.setBackground(new java.awt.Color(0, 153, 255));
         studentpage.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -103,7 +104,7 @@ public class dashboards extends javax.swing.JFrame {
         USER.setText("STUDENTS");
         studentpage.add(USER, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 100, 30));
 
-        navbar.add(studentpage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 120, 30));
+        navbar.add(studentpage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 120, 30));
 
         account.setBackground(new java.awt.Color(0, 153, 255));
         account.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -145,7 +146,7 @@ public class dashboards extends javax.swing.JFrame {
         USER2.setText("USERS");
         userpage.add(USER2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 30));
 
-        navbar.add(userpage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 120, 30));
+        navbar.add(userpage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 120, 30));
 
         department.setBackground(new java.awt.Color(0, 153, 255));
         department.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -166,7 +167,7 @@ public class dashboards extends javax.swing.JFrame {
         USER3.setText("DEPARTMENT");
         department.add(USER3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 30));
 
-        navbar.add(department, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 120, 30));
+        navbar.add(department, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 120, 30));
 
         enrollees.setBackground(new java.awt.Color(0, 153, 255));
         enrollees.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -187,7 +188,10 @@ public class dashboards extends javax.swing.JFrame {
         USER4.setText("ENROLLEES");
         enrollees.add(USER4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 30));
 
-        navbar.add(enrollees, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 120, 30));
+        navbar.add(enrollees, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 120, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconsfolder/LOGO (1) (1).png"))); // NOI18N
+        navbar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 100, 100));
 
         jPanel1.add(navbar);
         navbar.setBounds(0, 0, 120, 380);
@@ -412,6 +416,7 @@ System.exit(0);
     private javax.swing.JPanel enrollees;
     private javax.swing.JLabel exit;
     private javax.swing.JPanel header;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JDesktopPane maindesktop;
     private javax.swing.JLabel minimize;

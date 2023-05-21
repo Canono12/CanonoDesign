@@ -8,14 +8,24 @@ package INTERNALPAGES;
 import canonodesign.dashboards;
 import static com.sun.webkit.perf.WCFontPerfLogger.reset;
 import config.Dbconfiguration;
+import config.Emp;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -28,13 +38,25 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author canono
  */
 public class studentform extends javax.swing.JFrame {
-
-    /**
-     * Creates new form studentform
-     */
+private Connection con;
+  //Connection conn=null;
+//ResultSet rs=null;
+//PreparedStatement pst=null;
+   
+    
     public studentform() {
         initComponents();
+       
     }
+   
+   
+     public byte[] imageBytes;
+    String path;
+    String filename=null;
+    String imgPath = null;
+    public byte[] person_image = null;
+    
+    
         public void close(){
             this.dispose();
         dashboards ds = new dashboards();
@@ -87,7 +109,7 @@ public class studentform extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         image_display = new javax.swing.JLabel();
-        clear1 = new javax.swing.JButton();
+        choose = new javax.swing.JButton();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -298,15 +320,15 @@ public class studentform extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 240, 150));
 
-        clear1.setBackground(new java.awt.Color(204, 255, 255));
-        clear1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        clear1.setText("choose");
-        clear1.addActionListener(new java.awt.event.ActionListener() {
+        choose.setBackground(new java.awt.Color(204, 255, 255));
+        choose.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        choose.setText("choose");
+        choose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clear1ActionPerformed(evt);
+                chooseActionPerformed(evt);
             }
         });
-        jPanel1.add(clear1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 110, 30));
+        jPanel1.add(choose, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 110, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -326,7 +348,35 @@ public class studentform extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void st_labelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_st_labelMouseClicked
-       if(action.equals("Add")){
+     
+        
+   /*     String user1=st_name.getText();
+      
+      try {
+      
+      File file=new File (filename);
+      FileInputStream fis;
+      byte[] image =new byte[ (int)file.length()];
+      fis = new FileInputStream(file);
+      fis.read(image);
+      String sql = "UPDATE  tbl_student SET image = ? Where st_name = '"+user1+"'";
+      pstmt=con.prepareStatement(sql);
+      pstmt.setBytes(1,image);
+      pstmt.executeUpdate();
+      pstmt.close();
+      JOptionPane.showMessageDialog(this, "SUCCESSFULLY UPDATED!");
+ } catch (FileNotFoundException ex) {
+Logger.getLogger(studentform.class.getName()).log(Level.SEVERE, null, ex);
+ } catch (IOException ex){
+ Logger.getLogger(studentform.class.getName()).log(Level.SEVERE, null, ex);
+ } catch (SQLException ex){
+ Logger.getLogger(studentform.class.getName()).log(Level.SEVERE, null, ex);
+ }
+        */
+        
+        
+        
+        if(action.equals("Add")){
            try{
             Dbconfiguration dbc = new Dbconfiguration();
             Connection con = dbc.connect_db();
@@ -341,21 +391,24 @@ public class studentform extends javax.swing.JFrame {
             pst.setString(6, mname.getText());
             pst.setString(7, fname.getText());
              pst.setString(8, violation.getSelectedItem().toString());
-            pst.setBytes(9, person_image);
+            pst.setBytes(9, pic);
+            
+   
 
             pst.execute();
             JOptionPane.showMessageDialog(null, "Successfully Updated!");
              close();
-        }catch(Exception e){
-            System.out.println(e);
+        }catch(Exception ex){
+            System.out.println(ex);
         }
           
  }else if (action.equals("Update")){
-        
-          Dbconfiguration dbc = new Dbconfiguration();
+       
+      
+       /* Dbconfiguration dbc = new Dbconfiguration();
         int num = dbc.updateData("UPDATE tbl_student "
                 + "SET st_name = '"+st_name.getText()+"', st_address='"+st_address.getText()+"', "
-                        + "st_status ='"+st_status.getSelectedItem()+"', st_gender='"+gender+"', contact='"+contact.getText()+"', mname='"+mname.getText()+"', fname='"+fname.getText()+"', violation='"+violation.getSelectedItem()+"',  image='"+person_image+"'  "
+                        + "st_status ='"+st_status.getSelectedItem()+"', st_gender='"+gender+"', contact='"+contact.getText()+"', mname='"+mname.getText()+"', fname='"+fname.getText()+"', violation='"+violation.getSelectedItem()+"', image='"+pic.getByte()+"'  "
                                 + "WHERE st_id = '"+st_id.getText()+"'");
         
         close ();
@@ -373,30 +426,35 @@ public class studentform extends javax.swing.JFrame {
         }
        
        
-       /*}else if (action.equals("Update")){
-        
-          Dbconfiguration dbc = new Dbconfiguration();
-        int num = dbc.updateData("UPDATE tbl_student "
-                + "SET st_name = '"+st_name.getText()+"', st_address='"+st_address.getText()+"', "
-                        + "st_status ='"+st_status.getSelectedItem()+"', st_gender='"+gender+"', contact='"+contact.getText()+"', mname='"+mname.getText()+"', fname='"+fname.getText()+"', violation='"+violation.getSelectedItem()+"'  "
-                                + "WHERE st_id = '"+st_id.getText()+"'");
-        
-        close ();
+     */
        
-        if(num == 0){
-           
-        }else{
-           JOptionPane.showMessageDialog(null, "Updated Successfully!");
-           
-           reset();
+       try{
+            Dbconfiguration dbc = new Dbconfiguration();
+            Connection con = dbc.connect_db();
+           String sql = "UPDATE tbl_student SET st_name=?, st_address=?,st_status=?,  st_gender=?, contact=?, mname=?, fname=?, violation=?,  image=? where st_id=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setString(1, st_name.getText());
+            pst.setString(2, st_address.getText());
+            pst.setString(3, st_status.getSelectedItem().toString());
+            pst.setString(4, gender);
+            pst.setString(5, contact.getText());
+            pst.setString(6, mname.getText());
+            pst.setString(7, fname.getText());
+             pst.setString(8, violation.getSelectedItem().toString());
+            pst.setBytes(9, pic);
+            pst.setString(10, st_id.getText());
+    
+
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Successfully Updated!");
+             close();
+        }catch(Exception ex){
+            System.out.println(ex);
         }
-         
-         
-        
-        }*/
-       
+ }
     }//GEN-LAST:event_st_labelMouseClicked
-public  ImageIcon ResizeImage(String ImagePath, byte[] pic) {
+ public  ImageIcon ResizeImage(String ImagePath, byte[] pic) {
     ImageIcon MyImage = null;
         if(ImagePath !=null){
             MyImage = new ImageIcon(ImagePath);
@@ -409,11 +467,8 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic) {
     return image;
 }
 
-    public byte[] imageBytes;
-    String path;
-    String filename=null;
-    String imgPath = null;
-    public byte[] person_image = null;
+   
+    
     private void st_labelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_st_labelMouseEntered
         st_label.setBackground(bodycolor);
     }//GEN-LAST:event_st_labelMouseEntered
@@ -461,10 +516,11 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic) {
         mname.setText(null);
         fname.setText(null);
         violation.setSelectedItem(null);
+        image_display.setIcon(null);
     }//GEN-LAST:event_clearActionPerformed
 
-    private void clear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear1ActionPerformed
-          JFileChooser chooser = new JFileChooser();
+    private void chooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseActionPerformed
+         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
         FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images", "jpg", "gif", "png");
         chooser.addChoosableFileFilter(filter);
@@ -491,12 +547,12 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic) {
                 for (int readNum; (readNum=fis.read(buf)) !=-1;){
                  bos.write(buf,0,readNum);
                 }
-                person_image=bos.toByteArray();
+                pic=bos.toByteArray();
                 
         }catch(Exception e){
             System.out.println(e);
         }
-    }//GEN-LAST:event_clear1ActionPerformed
+    }//GEN-LAST:event_chooseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -534,8 +590,8 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton choose;
     private javax.swing.JButton clear;
-    private javax.swing.JButton clear1;
     public javax.swing.JTextField contact;
     private javax.swing.JLabel exit;
     public javax.swing.JRadioButton female;
@@ -567,4 +623,9 @@ public  ImageIcon ResizeImage(String ImagePath, byte[] pic) {
     public javax.swing.JComboBox<String> st_status;
     public javax.swing.JComboBox<String> violation;
     // End of variables declaration//GEN-END:variables
+String filen= null;
+byte[] pic = null; 
+private ImageIcon format = null;
+
+
 }

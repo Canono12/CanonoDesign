@@ -16,6 +16,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 import config.Dbconnector;
+import java.awt.Font;
 import java.sql.SQLException;
 import java.text.MessageFormat;
 import java.util.logging.Level;
@@ -45,6 +46,19 @@ public class departmentPage extends javax.swing.JInternalFrame {
         BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
         bi.setNorthPane(null);
         
+         table_department.setRowHeight(30);
+        //jTable1.setRowHeight(1, 100);
+
+     table_department.setShowGrid(true);
+       table_department.setGridColor(Color.gray);
+
+        table_department.setBackground(Color.white);
+        table_department.setForeground(Color.BLACK);
+        
+       table_department.setSelectionBackground(Color.gray);
+     table_department.setSelectionForeground(Color.white);
+        
+        table_department.setFont(new Font("Century Gothic", Font.ITALIC, 10)); 
         
         
         

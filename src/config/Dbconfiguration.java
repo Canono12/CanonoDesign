@@ -9,8 +9,26 @@ import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class Dbconfiguration {
+     Connection conn=null;
+    public static Connection java_db(){
+        
+        try{
+            Class.forName("org.sqlite.JDBC");
+            Connection conn =DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Hyrex\\Documents\\NetBeansProjects\\Student Information System\\studentInfo.sqlite");
+            //JOptionPane.showMessageDialog(null, "Connection to database is successful");
+      
+            return conn;
+           
+            
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+        }
+        
+    }
     
    private Connection connection;
     
